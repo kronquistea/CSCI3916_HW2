@@ -73,6 +73,7 @@ router.route('/movies')
         o.message = "GET movies";
         o.headers = req.headers;
         o.query = req.query;
+        o.env = process.env;
         res.json(o);
     })
     .post((req, res) => {
@@ -81,6 +82,7 @@ router.route('/movies')
         o.message = "movie saved";
         o.headers = req.headers;
         o.query = req.query;
+        o.env = process.env;
         res.json(o);
     })
     .put(authJwtController.isAuthenticated, (req, res) => {
@@ -92,6 +94,7 @@ router.route('/movies')
         o.message = "movie updated";
         o.headers = req.headers;
         o.query = req.query;
+        o.env = process.env;
         res.json(o);
     })
     .delete(authController.isAuthenticated, (req, res) => {
@@ -103,6 +106,7 @@ router.route('/movies')
         o.message = "movie deleted";
         o.headers = req.headers;
         o.query = req.query;
+        o.env = process.env;
         res.json(o);
     })
     .all((req, res) => {
