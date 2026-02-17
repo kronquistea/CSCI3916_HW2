@@ -1,4 +1,20 @@
 # Assignment Two
+## Postman Specific Requirements
+- All postman tests were run using localhost on port 8080 as the requirements did not say to deploy onto postman.
+- The authorization types for the different tests are different
+  - The four inital post and get methods (signup, signin, get movies, post movies) have no auth.
+  - Update movie w/o JWT auth has no auth, as I wanted to test no authentication.
+  - Update movie w/ JWT auth has no auth as well, the problem was that the response from the server was an invalid JWT format, so I put the authorization into the headers portion with `Authorization: {{token}}` as the key value pair.
+  - Delete movie w/o basic auth has no auth type.
+  - Delete movie w/ wrong basic auth password has basic auth type and should have a password other than `cu_rulez` as the password to test correct functionality.
+  - Delete movie w/ basic auth has basic auth type and should have the `cu_rulez` password to test correct functionality.
+  - Unsupported method has no auth type.
+- All tests include some form of status check to verify correct status code (200 for success, 401 for failed authentication, 405 for unsupported HTTP method).
+- All tests also include response time < 200ms.
+
+## Run My Postman Tests
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/51837676-33dc07b3-4e5a-4cd3-a9d7-00af3a3ddd61?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D51837676-33dc07b3-4e5a-4cd3-a9d7-00af3a3ddd61%26entityType%3Dcollection%26workspaceId%3D0d67b894-4771-4b4b-b3f6-e723f831f409#?env%5Bkronquist-hw2%5D=W3sia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJhbnkiLCJzZXNzaW9uVmFsdWUiOiJKV1QuLi4iLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IkpXVCBleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJak00TUdaaE9EQXlaVGt6TXpKbE1XUm1PVEUxTURGak0yUm1aREEzTVdGbU9UUmlaV1EzWVRraUxDSjFjMlZ5Ym1GdFpTSTZJbVZ5YVdzZ2EzSnZibkYxYVhOMElpd2lhV0YwSWpveE56Y3hNelU1TURjMGZRLjFBcjVZcHh1aVNtX011UUNweVJpV3ZjX3l4NW1LZnFTNnF3em1wVEVhdFEiLCJzZXNzaW9uSW5kZXgiOjB9XQ==)
+
 ## Purpose
 The purpose of this assignment is to start working with Node.js and become more familiar with HTTP requests.
 
@@ -64,12 +80,3 @@ You may use any of the standard packages included in Node.js or any third-party 
 - -1 JWT auth missing
 - -2 movies route issues (not responding with correct response)
 - -2 missing postman requirements (-1 if just a minor miss)
-
-## Resources
-- http://nodejs.org
-- http://www.passportjs.org/docs/basic-digest/
-- https://devcenter.heroku.com/articles/heroku-cli 
-- https://devcenter.heroku.com/articles/config-vars 
-- https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
-
-[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/35315-d9a3fcba-354e-4cbe-9d2f-ea93c15a1673?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D35315-d9a3fcba-354e-4cbe-9d2f-ea93c15a1673%26entityType%3Dcollection%26workspaceId%3D9537543c-3737-4557-a3ce-8c5ed9249378#?env%5Bmccarthy-hw2%5D=W3sia2V5IjoiSldUIiwidmFsdWUiOiIiLCJlbmFibGVkIjp0cnVlLCJ0eXBlIjoiYW55Iiwic2Vzc2lvblZhbHVlIjoiSldULi4uIiwiY29tcGxldGVTZXNzaW9uVmFsdWUiOiJKV1QgZXlKaGJHY2lPaUpJVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SnBaQ0k2SWpRME1qZzRNVFJpTWprME5tUTNaR1JsWm1VeU1qazVaV1F3TkRsaFlqYzRObUU1TnpNd09XWWlMQ0oxYzJWeWJtRnRaU0k2SW1KaGRHMWhiaUlzSW1saGRDSTZNVGN6TmpFeE16TTFNSDAuQUdQOUlNd2JZR29EWUZSem5BcWRhZW43YkFTTG1RUTVzbnBHR3o4Z0NnRSIsInNlc3Npb25JbmRleCI6MH1d)
