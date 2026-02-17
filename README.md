@@ -1,6 +1,6 @@
 # Assignment Two
 ## Postman Specific Requirements
-- All postman tests were run using localhost on port 8080 as the requirements did not say to deploy onto postman.
+- All postman tests were run using localhost on port 8080 as the requirements did not say to deploy onto render.
 - The authorization types for the different tests are different
   - The four inital post and get methods (signup, signin, get movies, post movies) have no auth.
   - Update movie w/o JWT auth has no auth, as I wanted to test no authentication.
