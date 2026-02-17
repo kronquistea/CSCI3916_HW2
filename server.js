@@ -1,9 +1,3 @@
-/*
-CSC3916 HW2
-File: Server.js
-Description: Web API scaffolding for Movie API
- */
-
 var express = require('express');
 var http = require('http');
 var bodyParser = require('body-parser');
@@ -72,6 +66,51 @@ router.post('/signin', (req, res) => {
     }
 });
 
+router.route('/movies')
+    .get((req, res) => {
+        let o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "GET movies";
+        o.headers = req.headers;
+        o.query = req.query;
+        res.json(o);
+    })
+    .post((req, res) => {
+        let o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie saved";
+        o.headers = req.headers;
+        o.query = req.query;
+        res.json(o);
+    })
+    .put(authJwtController.isAuthenticated, (req, res) => {
+        // HTTP PUT Method
+        // Requires JWT authentication.
+        // Returns a JSON object with status, message, headers, query, and env.
+        var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie updated";
+        o.headers = req.headers;
+        o.query = req.query;
+        res.json(o);
+    })
+    .delete(authController.isAuthenticated, (req, res) => {
+        // HTTP DELETE Method
+        // Requires Basic authentication.
+        // Returns a JSON object with status, message, headers, query, and env.
+        var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie deleted";
+        o.headers = req.headers;
+        o.query = req.query;
+        res.json(o);
+    })
+    .all((req, res) => {
+        // Any other HTTP Method
+        // Returns a message stating that the HTTP method is unsupported.
+        res.status(405).send({ message: 'HTTP method not supported.' });
+    });
+
 router.route('/testcollection')
     .delete(authController.isAuthenticated, (req, res) => {
         console.log(req.body);
@@ -97,5 +136,3 @@ router.route('/testcollection')
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
 module.exports = app; // for testing only
-
-
