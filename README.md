@@ -1,6 +1,5 @@
 # Assignment Two
 ## Postman Specific Requirements
-- All postman tests were run using localhost on port 8080 as the requirements did not say to deploy onto render.
 - The authorization types for the different tests are different
   - The four inital post and get methods (signup, signin, get movies, post movies) have no auth.
   - Update movie w/o JWT auth has no auth, as I wanted to test no authentication.
@@ -11,6 +10,9 @@
   - Unsupported method has no auth type.
 - All tests include some form of status check to verify correct status code (200 for success, 401 for failed authentication, 405 for unsupported HTTP method).
 - All tests also include response time < 200ms.
+
+## Render Link
+https://dashboard.render.com/web/srv-d69q32ggjchc73cm68k0
 
 ## Run My Postman Tests
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/51837676-33dc07b3-4e5a-4cd3-a9d7-00af3a3ddd61?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D51837676-33dc07b3-4e5a-4cd3-a9d7-00af3a3ddd61%26entityType%3Dcollection%26workspaceId%3D0d67b894-4771-4b4b-b3f6-e723f831f409#?env%5Bkronquist-hw2%5D=W3sia2V5IjoidG9rZW4iLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJhbnkiLCJzZXNzaW9uVmFsdWUiOiJKV1QuLi4iLCJjb21wbGV0ZVNlc3Npb25WYWx1ZSI6IkpXVCBleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcFpDSTZJak00TUdaaE9EQXlaVGt6TXpKbE1XUm1PVEUxTURGak0yUm1aREEzTVdGbU9UUmlaV1EzWVRraUxDSjFjMlZ5Ym1GdFpTSTZJbVZ5YVdzZ2EzSnZibkYxYVhOMElpd2lhV0YwSWpveE56Y3hNelU1TURjMGZRLjFBcjVZcHh1aVNtX011UUNweVJpV3ZjX3l4NW1LZnFTNnF3em1wVEVhdFEiLCJzZXNzaW9uSW5kZXgiOjB9XQ==)
